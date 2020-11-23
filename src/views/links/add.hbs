@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Genera el enlace para tu cliente</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Copia y envia el enlace a tu cliente</h6>
+                    <label for="foo">Enlace</label>
+                    <div class="form-row">
+                        <div class="col-auto">
+                            <input id="foo" class="form-control" value={{url}} readonly>
+                        </div>
+                        <div class="col-auto">
+                            <button class="link" data-clipboard-target="#foo">
+                            <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Valido hasta: {{valido}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+<script>
+    new ClipboardJS('.link');
+</script>

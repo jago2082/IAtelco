@@ -1,0 +1,56 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Por despachar</h5>
+                    {{#each xdespachar}}
+                    <h6 class="card-subtitle mb-2 text-muted">cliente:</h6>
+                    <div class="form-row">
+                        <div class="col-auto">
+                            <a href="/links/cinfo/{{idComprador}}" target="_blank">
+                                <h3 class="card-title text-uppercase">
+                                    {{ co_nombre }}
+                                </h3>
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <a href="/links/updateState/{{idComprador}}"><i class="fab fa-telegram-plane"></i></a>
+                        </div>
+                    </div>
+                    </br>
+                    {{else}}
+                        <div class="col mx-auto">
+                        <div class="card card-body text-center">
+                            <p>No hay registros</p>
+                        </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Despachados</h5>
+                    {{#each despachados}}
+                    <h6 class="card-subtitle mb-2 text-muted">cliente:</h6>
+                    <div class="form-row">
+                        <div class="col-auto">
+                            <input id="cliente" class="form-control" value="{{ co_nombre }}" readonly>
+                        </div>
+                    </div>
+                    </br>
+                    {{else}}
+                        <div class="col mx-auto">
+                        <div class="card card-body text-center">
+                            <p>No hay registros</p>
+                        </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+</div>

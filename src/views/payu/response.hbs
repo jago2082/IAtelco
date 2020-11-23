@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-row" id='printJS-form'>
+                        {{#if payu.esFirma}}
+                            <h2>Resumen Transacción</h2>
+                            <table>
+                            <tr>
+                            <td>Estado de la transaccion</td>
+                            <td>{{ payu.estadoTx }}</td>
+                            </tr>
+                            <tr>
+                            <tr>
+                            <td>ID de la transaccion</td>
+                            <td>{{ payu.transactionId }}</td>
+                            </tr>
+                            <tr>
+                            <td>Referencia de la venta</td>
+                            <td>{{ payu.reference_pol }}</td>
+                            </tr>
+                            <tr>
+                            <td>Referencia de la transaccion</td>
+                            <td>{{ payu.referenceCode }}</td>
+                            </tr>
+                            <tr>
+                            {{#if payu.isBank }}
+                                <tr>
+                                <td>cus </td>
+                                <td> {{ payu.cus}}</td>
+                                </tr>
+                                <tr>
+                                <td>Banco </td>
+                                <td>{{ payu.pseBank }} </td>
+                                </tr>
+                            {{/if}}
+                            <tr>
+                            <td>Valor total</td>
+                            <td>${{ payu.tx_value }}</td>
+                            </tr>
+                            <tr>
+                            <td>Moneda</td>
+                            <td>{{ payu.currency }}</td>
+                            </tr>
+                            <tr>
+                            <td>Descripción</td>
+                            <td>{{ payu.extra1}}</td>
+                            </tr>
+                            <tr>
+                            <td>Entidad:</td>
+                            <td>{{ payu.lapPaymentMethod }}</td>
+                            </tr>
+                            </table>
+
+                        {{else}}
+                            <h1>Error validando firma digital.</h1>
+                        {{/if}}
+                    
+                    </div>
+                    {{#if payu.esFirma}}
+                        <button type="button" class="bt btn-success" onclick="printJS('printJS-form', 'html')">
+                                Imprimir
+                        </button>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>

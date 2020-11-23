@@ -1,0 +1,43 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>Bienvenido {{user.ve_Nombre}}</h3>
+                    <h4>Tienda: {{user.ve_nombre_tienda}}</h4>
+                    {{#if links }}
+                            <div class="row">
+                                <div class="col mx-auto">
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        Usted puede generar hasta tres link gratis por registrarse en nuestra plataforma
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                    <form method="post" action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/">
+                        <input name="merchantId"    type="hidden"  value="508029"   >
+                        <input name="accountId"     type="hidden"  value="512321" >
+                        <input name="description"   type="hidden"  value="Test PAYU"  >
+                        <input name="referenceCode" type="hidden"  value="TestPayU" >
+                        <input name="amount"        type="hidden"  value="20000"   >
+                        <input name="tax"           type="hidden"  value="3193"  >
+                        <input name="taxReturnBase" type="hidden"  value="16806" >
+                        <input name="currency"      type="hidden"  value="COP" >
+                        <input name="signature"     type="hidden"  value="7ee7cf808ce6a39b17481c54f2c57acc"  >
+                        <input name="test"          type="hidden"  value="1" >
+                        <input name="buyerEmail"    type="hidden"  value="test@test.com" >
+                        <input name="responseUrl"    type="hidden"  value="http://localhost:3000/links/payu" >
+                        <input name="confirmationUrl"    type="hidden"  value="http://www.test.com/confirmation" >
+                        <input type="submit" class="bt btn-warning" value="Pagar">
+                    </form>
+                    {{else }}
+                    {{/if}}
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
